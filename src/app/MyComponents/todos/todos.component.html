@@ -1,0 +1,10 @@
+
+<app-add-todo (noteAdd)="addNote($event)" ></app-add-todo>
+<h3 class="my-3">Your Notes</h3>
+
+<div *ngIf="todos.length===0; else elseBlock">No Notes, Start writing Something amazing</div>
+<ng-template #elseBlock>
+<div *ngFor="let todo of todos" class="p-2 d-flex flex-col" >
+  <app-todo-item [todo]="todo" (noteDelete)="deleteNote($event)"></app-todo-item> 
+</div>
+</ng-template>
